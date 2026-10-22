@@ -1,0 +1,27 @@
+ROLA: wykonawca, iteracja 01, katalog `praca/iter01/zad1`.
+
+Zasady i opis problemu są w CLAUDE.md. Twoje zadanie: **Konstrukcja automorfizmu stopnia 6 (złożenie trójkątnych stopni 3 i 2)**. Pełna treść jest
+w `praca/iter01/zad1/zadanie.md`. 
+
+Masz twardy limit czasu: o godzinie **09:53** (sprawdzaj `date +%H:%M`) proces
+zostanie zabity bez ostrzeżenia. Wszystko, czego nie zapiszesz na dysku, przepadnie.
+
+Zasady pracy:
+- Piszesz tylko w `praca/iter01/zad1/` (skrypty w `skrypty/`, duże pliki pośrednie w `tmp/`).
+  Możesz czytać wszystko, w tym wyniki innych iteracji.
+- Od razu utwórz `praca/iter01/zad1/wynik.json` ze statusem `"w_toku"` i aktualizuj go co kilka
+  minut oraz po każdym istotnym ustaleniu. Format:
+  `{"status": "rozwiazanie|wynik_negatywny|bez_rozstrzygniecia|w_toku",
+    "podsumowanie": "2–5 zdań po polsku",
+    "najlepszy_stopien": liczba albo null,
+    "twierdzenia": [{"tresc": "...", "etykieta": "UDOWODNIONE|OBLICZENIOWE|HIPOTEZA",
+                     "uzasadnienie": "...", "pliki": ["skrypty/..."]}]}`
+- Prowadź `praca/iter01/zad1/notatki.md`: co sprawdzono, jaką metodą, z jakim wynikiem, czego nie
+  zdążono. Ma z niego skorzystać następny agent i redaktor raportu.
+- Każde znalezione odwzorowanie zapisz jako `praca/iter01/zad1/rozwiazanie_*.json` i sprawdź
+  weryfikatorem. Nie zgłaszaj plików, których weryfikator nie przyjmuje.
+- Obliczenia ciężkie uruchamiaj z `timeout` krótszym niż czas, który ci został, w tle z
+  zapisem postępu do pliku. Ok. 3 minuty przed końcem przerwij obliczenia i uporządkuj
+  `wynik.json` oraz `notatki.md`.
+- Wynik negatywny jest wartościowy, jeśli dokładnie opisuje przeszukaną klasę i daje
+  odtwarzalny skrypt. Nie przypisuj mu większej ogólności, niż ma.

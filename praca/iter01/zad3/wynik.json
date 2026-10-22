@@ -1,0 +1,46 @@
+{
+ "status": "bez_rozstrzygniecia",
+ "czy_konstrukcja_dziala": true,
+ "cialo": "Q(sqrt(94))",
+ "stopien": 4,
+ "uwagi": "To nie jest rozwiązanie nad Q (brak rozwiazanie*.json, zgodnie z zadaniem). Kontrola teorii: redukcja dwuczynnikowa (I),(II) z k=l=2 jest wystarczająca — daje jawny automorfizm stopnia 4 nad Q(sqrt 94). Dodatkowo: również punkt sześcienny (ciało Q(a2), 3a2^3+39a2^2+29a2+9=0, stopnia 3) daje automorfizm stopnia 4 — sprawdzone dokładnie, nie numerycznie.",
+ "podsumowanie": "Niezależnie (Sage) odtworzono warunki c1=c2=0 planisty przy b1=b2=1: zbiór zer to para a1^2-38a1-15=0, a2=-a1/15 (nad Q(sqrt 94)) oraz trójka z nieprzywiedlnego 9a1^3+29a1^2+39a1+3. Dla a1=19+2sqrt94 rozwiązano (I),(II) liniowo, zbudowano F=Phi2^{-1}∘Phi1 (Phi1, Phi2 trójkątne∘afiniczne stopnia 2) i dokładnie w Q(sqrt 94) sprawdzono: F(p_i)=q_i dla 5 punktów, G∘F=F∘G=id, deg F=deg G=4. Przeszkoda dla stopnia 4 nad Q jest więc czysto arytmetyczna (o ile redukcja planisty jest kompletna — tego tu nie sprawdzano).",
+ "najlepszy_stopien": null,
+ "twierdzenia": [
+  {
+   "tresc": "Przy l1=a1 x+y, l2=a2 x+y warunki wyznacznikowe (I),(II) dla k=l=2 mają dokładnie 5 wspólnych zer (a1,a2) w C^2: ideał rozkłada się na <15a2^2+38a2-1, a1+15a2> i <3a2^3+39a2^2+29a2+9, 9a1+3a2^2+39a2+29>; żadne nie jest wymierne.",
+   "etykieta": "OBLICZENIOWE",
+   "uzasadnienie": "Sage: minimal_associated_primes i eliminacja; zgadza się z rachunkiem planisty. Zakres: tylko mapa b1=b2=1 (mapy b1=0 lub b2=0 nie były tu sprawdzane).",
+   "pliki": [
+    "skrypty/konstrukcja.sage",
+    "skrypty/konstrukcja_wyjscie.txt"
+   ]
+  },
+  {
+   "tresc": "Istnieje automorfizm F stopnia 4 płaszczyzny nad Q(sqrt 94), F=Phi2^{-1}∘Phi1 z Phi1=(l1, mu+f(l1)), Phi2=(nu+g(l2), l2), deg f=deg g=2, a1=19+2sqrt94, a2=-a1/15, spełniający F(p_i)=q_i dla i=1..5; jego odwrotność G ma stopień 4.",
+   "etykieta": "OBLICZENIOWE",
+   "uzasadnienie": "Dokładna arytmetyka w NumberField(t^2-94) w Sage; asercje F(p_i)=q_i, G∘F=id, F∘G=id przeszły; jakobian = (335-24 sqrt94)/241 ≠ 0. Pełne wzory w skrypty/konstrukcja_wyjscie.txt.",
+   "pliki": [
+    "skrypty/konstrukcja.sage",
+    "skrypty/konstrukcja_wyjscie.txt"
+   ]
+  },
+  {
+   "tresc": "Warunki (I),(II) planisty są nie tylko konieczne, ale i wystarczające do istnienia złożenia dwóch czynników trójkątnych stopnia 2 (z afinicznymi), o ile spełnione są niedegeneracje: mu niezależne od l1, nu niezależne od l2.",
+   "etykieta": "UDOWODNIONE",
+   "uzasadnienie": "Phi1(x,y)=(l1, mu+f(l1)) jest automorfizmem (trójkątne∘afiniczne) i Phi1(p_i)=(l1(p_i),l2(q_i))=s_i z (I); analogicznie Phi2(q_i)=s_i z (II); zatem F=Phi2^{-1}∘Phi1 spełnia F(p_i)=q_i i deg F<=k*l. Konstrukcja potwierdzona obliczeniowo nad Q(sqrt 94).",
+   "pliki": [
+    "skrypty/konstrukcja.sage"
+   ]
+  },
+  {
+   "tresc": "Dla punktu sześciennego (a2 pierwiastek 3t^3+39t^2+29t+9, a1=-(3a2^2+39a2+29)/9) konstrukcja również daje automorfizm stopnia 4 nad ciałem sześciennym Q(a2), z F(p_i)=q_i, G∘F=F∘G=id, jakobian 1.",
+   "etykieta": "OBLICZENIOWE",
+   "uzasadnienie": "Dokładna arytmetyka w NumberField stopnia 3 (Sage), te same asercje co dla Q(sqrt 94).",
+   "pliki": [
+    "skrypty/konstrukcja_szescienna.sage",
+    "skrypty/konstrukcja_szescienna_wyjscie.txt"
+   ]
+  }
+ ]
+}

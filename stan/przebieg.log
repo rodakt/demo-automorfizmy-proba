@@ -2,3 +2,16 @@
 OK  praca/iter00/baza/rozwiazanie_bazowe.json stopień=16 
 Zaakceptowane: 1, odrzucone: 0, najlepszy stopień: 16
 [09:38:37] najlepszy zweryfikowany stopień: 16
+[09:38:44] == iteracja 01: planowanie
+[09:41:16] agent iter01_planista zakończony (kod 0, koszt 0.6348908 USD)
+[09:41:16] == iteracja 01: 3 wykonawców po 12 min
+[09:41:16] start iter01_zad1: Konstrukcja automorfizmu stopnia 6 (złożenie trójkątnych stopni 3 i 2)
+[09:41:16] start iter01_zad2: Dowód ograniczenia dolnego: brak automorfizmów stopnia < 6 nad Q
+[09:41:16] start iter01_zad3: Walidacja redukcji: automorfizm stopnia 4 nad Q(sqrt 94) i weryfikacja
+[09:42:02] agent iter01_zad1 zakończony (kod 0, koszt 0.28472140000000007 USD)
+[09:43:12] agent iter01_zad2 zakończony (kod 0, koszt 0.47639599999999993 USD)
+[09:43:12] agent iter01_zad3 zakończony (kod 0, koszt 0.5201896 USD)
+[09:43:12] == iteracja 01: weryfikacja
+OK  praca/iter01/zad1/rozwiazanie_st6.json stopień=6 
+Zaakceptowane: 2, odrzucone: 0, najlepszy stopień: 6
+[09:43:12] najlepszy zweryfikowany stopień: 6

@@ -1,0 +1,11 @@
+{"status": "rozwiazanie",
+ "podsumowanie": "Zbudowano automorfizm stopnia 6 jako złożenie afinicznego, trójkątnego stopnia 3 (zmienia y), trójkątnego stopnia 2 (zmienia x) i afinicznego. Weryfikator przyjął plik rozwiazanie_st6.json (ok, stopień 6). Ograniczenia dolnego nie badano.",
+ "najlepszy_stopien": 6,
+ "stopien": 6,
+ "plik": "rozwiazanie_st6.json",
+ "twierdzenia": [
+  {"tresc": "Istnieje automorfizm wielomianowy Q^2 stopnia 6 realizujący zadaną bijekcję (złożenie trójkątnych stopni 3 i 2 z afinicznymi).",
+   "etykieta": "OBLICZENIOWE",
+   "uzasadnienie": "Rozwiązanie dokładnych układów liniowych (I),(II) nad Q dla l1=x-3y, l2=y; plik przyjęty lokalnie przez narzedzia/verify.py (ok=true, stopien=6). Etykietę ZWERYFIKOWANE nadaje weryfikator zarządcy.",
+   "pliki": ["skrypty/st6.py", "rozwiazanie_st6.json"]}
+ ]}

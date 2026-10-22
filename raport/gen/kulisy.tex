@@ -1,3 +1,10 @@
 \section{Kulisy eksperymentu}
 Raport powstał bez udziału człowieka w trakcie pracy. Skrypt-zarządca pilnował czasu i w każdej iteracji uruchamiał: agenta-planistę (wybór kierunków), kilku niezależnych agentów-wykonawców (każdy w osobnym katalogu, z twardym limitem czasu), niezależny weryfikator (program przygotowany przed startem, którego agenci nie mogli zmienić) oraz agenta-redaktora tekstu. Po każdej iteracji raport był składany i publikowany.
 
+\begin{center}\small\begin{longtable}{rlp{6.2cm}rlr}\toprule Iter. & Rola & Zadanie & Min. & Koniec & Koszt [USD]\\\midrule\endhead
+01 & planista & planowanie  & 2.5 & zakończył & 0.63\\
+01 & wykonawca & Konstrukcja automorfizmu stopnia 6 (złożenie trójkątnych stopni 3 i 2)  & 0.8 & zakończył & 0.28\\
+01 & wykonawca & Dowód ograniczenia dolnego: brak automorfizmów stopnia < 6 nad Q  & 1.9 & zakończył & 0.48\\
+01 & wykonawca & Walidacja redukcji: automorfizm stopnia 4 nad Q(sqrt 94) i weryfikacja  & 1.9 & zakończył & 0.52\\
+\bottomrule\end{longtable}\end{center}
+Łączny koszt obliczeń modelu (według raportów narzędzia): 1.92 USD. Skrót SHA-256 weryfikatora: \texttt{\hashWeryfikatora}.

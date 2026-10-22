@@ -1,11 +1,31 @@
 {
  "m": 5,
  "ograniczenie_znane": 16,
- "najlepszy_stopien": 16,
- "najlepszy_plik": "praca/iter00/baza/rozwiazanie_bazowe.json",
- "liczba_zaakceptowanych": 1,
+ "najlepszy_stopien": 6,
+ "najlepszy_plik": "praca/iter01/zad1/rozwiazanie_st6.json",
+ "liczba_zaakceptowanych": 2,
  "liczba_odrzuconych": 0,
  "rozwiazania": [
+  {
+   "plik": "praca/iter01/zad1/rozwiazanie_st6.json",
+   "ok": true,
+   "stopien": 6,
+   "bledy": [],
+   "autor": "iter01/zad1",
+   "opis": "F = H^{-1} o P: P(p)=(l1, mu+f(l1)), l1=x-3y, mu=-1/2-25/24x+1/8y, f=t^2/8+t^3/96; H(q)=(nu+g(l2), l2), l2=y, nu=8/3-x+3y, g=-8/3 t^2. Stopien 3*2=6.",
+   "stopnie_czynnikow": [
+    3,
+    2
+   ],
+   "F": [
+    "-x**6/3456 + x**5*y/192 - x**5/144 - 5*x**4*y**2/128 + 5*x**4*y/48 + 7*x**4/432 + 5*x**3*y**3/32 - 5*x**3*y**2/8 - x**3*y/36 + 217*x**3/288 - 45*x**2*y**4/128 + 15*x**2*y**3/8 - 5*x**2*y**2/8 - 153*x**2*y/32 - 59*x**2/27 + 27*x*y**5/64 - 45*x*y**4/16 + 11*x*y**3/4 + 267*x*y**2/32 - 32*x*y/9 - 497*x/72 - 27*y**6/128 + 27*y**5/16 - 51*y**4/16 - 75*y**3/32 + 19*y**2/3 + 89*y/24 + 1/2",
+    "x**3/96 - 3*x**2*y/32 + x**2/8 + 9*x*y**2/32 - 3*x*y/4 - 25*x/24 - 9*y**3/32 + 9*y**2/8 + y/8 - 1/2"
+   ],
+   "liczba_wyrazow": 38,
+   "czas_weryfikacji_s": 0.03,
+   "sha256": "c88a41ae72f8642428455078be21b02ac83ebf4c0a2fb81d84f89938b203bbdd",
+   "zauwazono": "09:43:12"
+  },
   {
    "plik": "praca/iter00/baza/rozwiazanie_bazowe.json",
    "ok": true,

@@ -1,0 +1,18 @@
+# Dowód ograniczenia dolnego: brak automorfizmów stopnia < 6 nad Q
+
+KONTEKST (rachunek planisty, do niezależnego sprawdzenia, status: HIPOTEZA): 
+Punkty: A=(-1,-1)->C, B=(1,-1)->D, C=(1,1)->A, D=(-1,1)->E=(2,2), E->B (dane w zadanie.json).
+Twierdzenie Junga–van der Kulka (dowolne ciało, więc też Q): każdy automorfizm to słowo zredukowane a0 T1 a1 T2 ... Tk ak (ai afiniczne, Ti trójkątne stopnia >=2, wewnętrzne ai nie trójkątne), a deg = iloczyn deg Ti. Stąd stopnie pierwsze d (2,3,5,...) dają tylko postać a∘T∘b z jednym czynnikiem trójkątnym.
+(L1) a∘T∘b z jednym T przeprowadza poziomice funkcjonału l1 = x∘b na poziomice l2 = x∘a^{-1}, więc musiałoby być l1(p_i) = l2(q_i) dla wszystkich i z niestałymi afinicznymi l1,l2. Planista rozwiązał ten układ liniowy ręcznie: ma tylko rozwiązania stałe. Wniosek: stopnie 1,2,3,5,7 i 'pojedynczy czynnik stopnia 4' niemożliwe.
+(Redukcja dwuczynnikowa) F = a∘T∘b∘T'∘c. Niech l1 = x∘c (funkcjonał na płaszczyźnie p zachowywany przez T'c), l2 = x∘a^{-1} (na płaszczyźnie q). Po afinicznej zmianie środkowej płaszczyzny punkty pośrednie to s_i = (l1(p_i), l2(q_i)). Warunki istnienia z deg T' <= k, deg T <= l:
+ (I)  l2(q_i) = mu(p_i) + f(l1(p_i)), mu afiniczne niezależne od l1, deg f <= k;
+ (II) l1(p_i) = nu(q_i) + g(l2(q_i)), nu afiniczne niezależne od l2, deg g <= l.
+Dla k=2 warunek (I) wymaga det[1, px_i, py_i, l1(p_i)^2, l2(q_i)]_{i=1..5} = 0; analogicznie (II) dla l=2. Dla k=3 warunek (I) jest generycznie spełniony automatycznie (5 wektorów 1,x,y,l1^2,l1^3 w Q^5).
+Krótkie sprawdzenie planisty (sympy, plik stan/plan_iter01_sprawdzenie.py) dla l1=a1 x+b1 y, l2=a2 x+b2 y:
+ c1 = -4(3a1^2a2 + 9a1^2b2 + 30a1a2b1 + 26a1b1b2 + 3a2b1^2 + 9b1^2b2),
+ c2 =  4(9a1a2^2 + 26a1a2b2 + 9a1b2^2 + 3a2^2b1 + 30a2b1b2 + 3b1b2^2);
+ wspólne zera w P1xP1: brak w mapach b1=0 lub b2=0; w mapie b1=b2=1 pięć punktów, wszystkie niewymierne (para z sqrt(94), trójka z nieprzywiedlnego sześciennego). Sugeruje to: stopień 4 niemożliwy nad Q, ale możliwy nad Q(sqrt 94).
+
+TWOJE ZADANIE: napisz w praca/iter01/zad2/notatki.md staranny dowód (etykiety UDOWODNIONE/OBLICZENIOWE), że żaden automorfizm Q² o współczynnikach wymiernych stopnia 1,2,3,4,5 nie realizuje tej bijekcji, i sprawdź każdy krok niezależnie (nie ufaj rachunkom planisty).
+Kroki: (1) deg 1: A,C,E współliniowe, obrazy C,A,B nie. (2) Lemat L1: zapisz i rozwiąż (sympy/Sage) układ l1(p_i)=l2(q_i); wniosek dla stopni pierwszych 2,3,5 i dla pojedynczego czynnika stopnia 4 — powołaj się poprawnie na Junga–van der Kulka i multiplikatywność stopnia dla słów zredukowanych (podaj dokładne sformułowanie, z którego korzystasz, np. Friedland–Milnor / van den Essen 'Polynomial automorphisms', Thm 5.1.x — bez wymyślania numerów, jeśli nie jesteś pewien). (3) Stopień 4 = a∘T2∘b∘T2'∘c (b nietrójkątne): wyprowadź samodzielnie warunki (I),(II) z k=l=2 i pokaż, że konieczne są det-warunki c1=c2=0; uzasadnij, że stała w l1, l2 nie ma znaczenia; rozwiąż c1=c2=0 w P1×P1 dokładnie w Sage/Singular (wszystkie mapy: b1=0, b2=0, b1=b2=1; np. rugownik względem a2 i rozkład na czynniki nieprzywiedlne nad Q) i wykaż brak punktów wymiernych. Zwróć uwagę na przypadki zdegenerowane (np. gdy kolumny 1,x,y,l1^2 są liniowo zależne — wtedy det znika tożsamościowo w l2; to musi wyjść jako składowa zbioru zer, sprawdź). (4) Wniosek: każde rozwiązanie wymierne ma stopień >= 6 (6 jest pierwszym iloczynem >=2 czynników >=2 różnym od 4, po wykluczeniu 5).
+Rezultat: notatki.md z dowodem, skrypty/ z odtwarzalnym skryptem Sage (uruchamiaj z timeout), wynik.json (pola: twierdzenie, status: UDOWODNIONE/OBLICZENIOWE/HIPOTEZA, luki). Jeśli znajdziesz błąd w rozumowaniu planisty, opisz go wyraźnie.
