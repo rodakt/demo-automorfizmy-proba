@@ -1,1 +1,84 @@
-% Sekcję uzupełnia agent-redaktor.
+\section{Wnioski i pytania otwarte}
+
+\begin{twierdzenie}[ograniczenie górne]\label{tw:gorne}
+Istnieje automorfizm wielomianowy $\Q^2$ stopnia $6$ realizujący zadaną bijekcję:
+$F=H^{-1}\circ P$, złożenie czynników trójkątnych stopni $3$ i $2$ z afinicznymi
+(plik \texttt{praca/iter01/zad1/rozwiazanie\_st6.json}). \emph{Status: ZWERYFIKOWANE.}
+\end{twierdzenie}
+
+\begin{twierdzenie}[ograniczenie dolne]\label{tw:dolne}
+Każdy automorfizm wielomianowy płaszczyzny o współczynnikach wymiernych, spełniający
+$F(p_i)=q_i$ dla $i=1,\dots,5$, ma stopień $\ge6$.
+\emph{Status: UDOWODNIONE przy cytowanym twierdzeniu~\ref{tw:jvdk}; kroki rachunkowe 2 i 3 mają
+status OBLICZENIOWE i zostały powtórzone niezależnie w Sage (dwiema metodami) i w sympy.}
+\end{twierdzenie}
+\begin{proof}
+\emph{Stopień 1.} Punkty $A,C,E$ leżą na prostej $y=x$, a ich obrazy $(1,1),(-1,-1),(1,-1)$ nie są
+współliniowe (wyznacznik $4$); odwzorowanie afiniczne zachowuje współliniowość.
+
+\emph{Stopnie 2, 3, 5 oraz 4 z jednym czynnikiem.} Według stwierdzenia~\ref{stw:przypadki}
+$F=a\circ T_f\circ b$, więc wg lematu~\ref{lem:L1} istnieją niestałe $\ell_1,\ell_2$ z
+$\ell_1(p_i)=\ell_2(q_i)$. Jest to jednorodny układ 5 równań liniowych na 6 współczynników
+$(a_1,b_1,c_1,a_2,b_2,c_2)$; jego macierz ma rząd $5$, a jądro to
+$\mathrm{span}\{(0,0,1,0,0,1)\}$, czyli tylko $\ell_1=\ell_2=\text{const}$ -- sprzeczność
+(OBLICZENIOWE; da się to też sprawdzić ręcznie).
+
+\emph{Stopień $4=2\cdot2$.} Wg lematu~\ref{lem:wyzn} musi być $c_1=c_2=0$ dla pewnych
+$(a_1:b_1),(a_2:b_2)\in\mathbb{P}^1(\Q)$. Rachunek daje
+\begin{align*}
+c_1&=-4\,(3a_1^2a_2+9a_1^2b_2+30a_1b_1a_2+26a_1b_1b_2+3b_1^2a_2+9b_1^2b_2),\\
+c_2&=\phantom{-}4\,(9a_1a_2^2+26a_1a_2b_2+9a_1b_2^2+3b_1a_2^2+30b_1a_2b_2+3b_1b_2^2).
+\end{align*}
+Zapiszmy $c_1=u\,a_2+v\,b_2$ z $u=-12(a_1^2+10a_1b_1+b_1^2)$, $v=-4(9a_1^2+26a_1b_1+9b_1^2)$.
+Formy $u,v$ nie mają wspólnego niezerowego zera (nawet nad $\mathbb{C}$), więc $(a_2:b_2)=(v:-u)$ jest
+wyznaczone jednoznacznie, a podstawienie do $c_2$ daje
+\[
+768\,(a_1^2-38a_1b_1-15b_1^2)\,(9a_1^3+29a_1^2b_1+39a_1b_1^2+3b_1^3),
+\]
+forma bez zer w $\mathbb{P}^1(\Q)$ (dla $b_1=0$ wartość $6912\neq0$; czynnik kwadratowy ma wyróżnik
+$4\cdot 376=16\cdot94$, a sześcienny jest nieprzywiedlny nad $\Q$). Wspólne zera zespolone to
+dokładnie 5 punktów: 2 nad $\Q(\sqrt{94})$ i 3 nad ciałem sześciennym. Sprzeczność
+(OBLICZENIOWE; ten sam wynik otrzymano przez rozkład ideałów w czterech mapach
+$\mathbb{P}^1\times\mathbb{P}^1$ w Sage oraz rugownikami w sympy).
+
+Te przypadki wyczerpują $\deg F\le5$.
+\end{proof}
+
+\begin{stwierdzenie}
+Najmniejszy stopień automorfizmu \emph{nad $\Q$} realizującego zadaną bijekcję wynosi $6$.
+\emph{Status: wynika z twierdzeń~\ref{tw:gorne} (ZWERYFIKOWANE) i~\ref{tw:dolne}
+(UDOWODNIONE przy twierdzeniu Junga--van der Kulka, z krokami OBLICZENIOWYMI).}
+\end{stwierdzenie}
+
+\begin{stwierdzenie}[przeszkoda arytmetyczna]
+Nad $\Q(\sqrt{94})$ oraz nad ciałem sześciennym $\Q(\alpha)$, $3\alpha^3+39\alpha^2+29\alpha+9=0$,
+istnieją automorfizmy stopnia $4$ realizujące tę samą bijekcję.
+\emph{Status: OBLICZENIOWE} (dokładna arytmetyka w ciałach liczbowych w Sage, sprawdzone
+$F(p_i)=q_i$, $G\circ F=F\circ G=\mathrm{id}$, $\deg F=\deg G=4$; iter01/zad3).
+Zatem ograniczenie dolne $6$ jest zjawiskiem czysto arytmetycznym: nad $\mathbb{C}$ (a nawet nad
+$\Q(\sqrt{94})$) minimalny stopień jest $\le4$.
+\end{stwierdzenie}
+
+\begin{uwaga}\label{uw:luka}
+Znane słabości: (i) twierdzenie~\ref{tw:jvdk} cytujemy bez sprawdzenia numeru twierdzenia i danych
+bibliograficznych w źródłach; (ii) kroki rachunkowe nie mają ręcznego dowodu, lecz są dokładnymi,
+odtwarzalnymi obliczeniami, powtórzonymi w trzech niezależnych implementacjach; kontrola pozytywna
+(iter02/zad2) pokazała, że procedura znajduje wymierne zera, gdy istnieją, w trzech losowych testach.
+\end{uwaga}
+
+\subsection*{Pytania otwarte}
+\begin{enumerate}
+\item Czy nad $\Q(\sqrt{94})$ (lub nad $\mathbb{C}$) stopień $4$ jest minimalny, tj.\ czy stopnie
+  $2$, $3$ są tam niemożliwe? Lemat~\ref{lem:L1} wyklucza je nad każdym ciałem zawierającym dane,
+  bo jądro układu liniowego nie zależy od ciała -- wydaje się więc, że tak, ale nie zostało to
+  zapisane i sprawdzone w eksperymencie (HIPOTEZA).
+\item Ile jest (z dokładnością do oczywistych symetrii) automorfizmów stopnia $6$ nad $\Q$ realizujących
+  bijekcję i czy istnieją takie, które nie są złożeniem dwóch czynników stopni $3$ i $2$ (np.\ jeden
+  czynnik stopnia 6 jest wykluczony przez lemat~\ref{lem:L1}, ale $2\cdot3$ w odwrotnej kolejności nie
+  był badany)?
+\item Jak ogólnie zależy minimalny stopień nad $\Q$ od arytmetyki konfiguracji $5$ punktów -- czy dla
+  ,,typowych'' danych wymiernych stopień $4$ jest osiągalny tylko z prawdopodobieństwem zero
+  (bo wymaga wymiernego punktu na zbiorze zerowymiarowym)?
+\item Czy można podać ręczny, bezkomputerowy dowód braku wymiernych wspólnych zer $c_1,c_2$?
+\item Sprawdzenie dokładnych odwołań do twierdzenia o multiplikatywności stopnia w literaturze.
+\end{enumerate}

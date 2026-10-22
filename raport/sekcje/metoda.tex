@@ -1,2 +1,99 @@
 \section{Metoda}
-Opis metody pojawi się po pierwszej iteracji.
+
+\subsection{Notacja i narzędzie strukturalne}
+Punkty danych oznaczamy $A=(-1,-1)$, $B=(1,-1)$, $C=(1,1)$, $D=(-1,1)$, $E=(2,2)$ (to są
+$p_1,\dots,p_5$); ich obrazy $q_1,\dots,q_5$ to odpowiednio $(1,1)$, $(-1,1)$, $(-1,-1)$, $(2,2)$,
+$(1,-1)$. Przez $\mathrm{Af}$ oznaczamy grupę automorfizmów afinicznych, a przez
+\emph{czynnik trójkątny} -- odwzorowanie $T_f(x,y)=(x,\,y+f(x))$, $f\in\Q[x]$, $\deg f\ge 2$
+(zamiana ról $x\leftrightarrow y$ jest afiniczna, więc wystarczy ten jeden typ). Zauważmy, że
+$x\circ T_f=x$ oraz $T_f^{-1}=T_{-f}$.
+
+\begin{twierdzenie}[Jung, van der Kulk; postać ze stopniem]\label{tw:jvdk}
+Niech $k$ będzie ciałem. Każdy nieafiniczny automorfizm wielomianowy $F$ płaszczyzny $k^2$ ma postać
+$F=a_0\circ T_{f_1}\circ a_1\circ\dots\circ T_{f_r}\circ a_r$, gdzie $a_i\in\mathrm{Af}$,
+$\deg f_i\ge2$, $r\ge1$, oraz $\deg F=\prod_{i}\deg f_i$.
+\end{twierdzenie}
+\noindent\emph{Status:} twierdzenie cytowane z literatury
+\cite{Jung,vdKulk,FriedlandMilnor,vdEssen} (rozkład na słowo zredukowane w produkcie
+amalgamowanym $\mathrm{Af}*_{\mathrm{Af}\cap\mathrm{Bf}}\mathrm{Bf}$ i multiplikatywność stopnia
+całkowitego na słowach zredukowanych); w eksperymencie nie sprawdzono numeru twierdzenia w źródle.
+Pochłonięcie części afinicznych czynników z $\mathrm{Bf}\setminus\mathrm{Af}$ przez sąsiadów może
+zepsuć ,,zredukowanie'' słowa, ale dalsze rozumowanie korzysta tylko z postaci i stopni $f_i$,
+więc nie ma to znaczenia (audyt iter02/zad1).
+
+Ponieważ $\deg f_i\ge2$, z twierdzenia~\ref{tw:jvdk} wynika natychmiast:
+\begin{stwierdzenie}\label{stw:przypadki}
+Jeśli $\deg F\in\{2,3,5\}$, to $F=a\circ T_f\circ b$. Jeśli $\deg F=4$, to $F=a\circ T_f\circ b$ z
+$\deg f=4$ albo $F=a\circ T_f\circ b\circ T_g\circ c$ z $\deg f=\deg g=2$
+($a,b,c\in\mathrm{Af}$). \emph{(UDOWODNIONE przy twierdzeniu~\ref{tw:jvdk}.)}
+\end{stwierdzenie}
+
+\subsection{Ograniczenie górne: złożenie dwóch czynników przez punkty pośrednie}
+\begin{lemat}[konstrukcja dwuczynnikowa]\label{lem:konstr}
+Niech $\ell_1,\mu$ będą funkcjonałami afinicznymi na płaszczyźnie $p$, a $\ell_2,\nu$ na płaszczyźnie
+$q$, przy czym $\ell_1,\mu$ oraz $\ell_2,\nu$ są liniowo niezależne (modulo stałe). Jeśli
+istnieją wielomiany $f,g$ stopni $k,l$ takie, że dla $i=1,\dots,m$
+\[
+\text{(I)}\ \ \ell_2(q_i)=\mu(p_i)+f(\ell_1(p_i)),\qquad
+\text{(II)}\ \ \ell_1(p_i)=\nu(q_i)+g(\ell_2(q_i)),
+\]
+to $P=(\ell_1,\mu+f(\ell_1))$ i $H=(\nu+g(\ell_2),\ell_2)$ są automorfizmami, $P(p_i)=H(q_i)=
+(\ell_1(p_i),\ell_2(q_i))$, a $F=H^{-1}\circ P$ realizuje bijekcję i ma stopień $\le kl$.
+\emph{(UDOWODNIONE -- bezpośrednie sprawdzenie, iter01/zad3.)}
+\end{lemat}
+Przy ustalonych $\ell_1,\ell_2$ warunki (I) i (II) są \emph{liniowe} względem współczynników
+$\mu,f$ oraz $\nu,g$. Metoda poszukiwania: wybrać $\ell_1,\ell_2$ tak, by oba układy liniowe nad
+$\Q$ były niesprzeczne, rozwiązać je dokładnie i zapisać $F$ jako słowo czynników.
+Dla $(k,l)=(3,2)$ układ (I) ma 5 równań i 5 niewiadomych (zwykle rozwiązywalny), a (II) -- 5 równań
+i 4 niewiadome, co daje jeden warunek wyznacznikowy, liniowy względem $\ell_1$ przy ustalonym
+$\ell_2$. Wybrano $\ell_2=y$; warunek przybrał postać $36a_1+12b_1=0$, stąd $\ell_1=x-3y$
+(skrypt \texttt{praca/iter01/zad1/skrypty/st6.py}, sympy).
+
+\subsection{Ograniczenie dolne: warunki konieczne}
+\begin{lemat}[L1]\label{lem:L1}
+Jeśli $F=a\circ T_f\circ b$ (dowolny stopień $f$) lub $F$ afiniczne realizuje bijekcję, to istnieją
+niestałe funkcjonały afiniczne $\ell_1,\ell_2$ z $\ell_1(p_i)=\ell_2(q_i)$ dla wszystkich $i$.
+\end{lemat}
+\begin{proof}
+Wystarczy $\ell_1=x\circ b$, $\ell_2=x\circ a^{-1}$: z $x\circ T_f=x$ mamy $\ell_2\circ F=\ell_1$.
+Oba są niestałe, bo $a,b$ są odwracalne. (Dla $F$ afinicznego bierzemy $\ell_1=x$, $\ell_2=x\circ F^{-1}$.)
+\end{proof}
+
+\begin{lemat}[warunki wyznacznikowe dla $2\cdot2$]\label{lem:wyzn}
+Jeśli $F=a\circ T_f\circ b\circ T_g\circ c$ z $\deg f,\deg g\le2$ realizuje bijekcję, to dla
+$\ell_1=x\circ c$, $\ell_2=x\circ a^{-1}$ (z pominiętymi wyrazami wolnymi,
+$\ell_1=a_1x+b_1y$, $\ell_2=a_2x+b_2y$, $(a_j:b_j)\in\mathbb{P}^1(\Q)$) zachodzi
+\[
+c_1:=\det\bigl[\,1,\ x(p_i),\ y(p_i),\ \ell_1(p_i)^2,\ \ell_2(q_i)\,\bigr]_{i=1}^5=0,\qquad
+c_2:=\det\bigl[\,1,\ x(q_i),\ y(q_i),\ \ell_2(q_i)^2,\ \ell_1(p_i)\,\bigr]_{i=1}^5=0.
+\]
+\end{lemat}
+\begin{proof}
+Niech $m=y\circ c$ i $r_i=T_g(c(p_i))=(\ell_1(p_i),\,m(p_i)+g(\ell_1(p_i)))$. Ponieważ
+$x\circ T_f=x$, mamy $\ell_2(q_i)=x(b(r_i))=\alpha\ell_1(p_i)+\beta m(p_i)+\beta g(\ell_1(p_i))+\gamma$,
+czyli wektor $(\ell_2(q_i))_i$ leży w przestrzeni rozpiętej przez wektory wartości $1,x,y,\ell_1^2$
+w punktach $p_i$; stąd $c_1=0$ (warunek jest konieczny niezależnie od tego, czy $\beta\neq0$).
+Odwrotność $F^{-1}=c^{-1}\circ T_{-g}\circ b^{-1}\circ T_{-f}\circ a^{-1}$ ma tę samą postać, przy
+czym rolę $\ell_1$ przejmuje $x\circ a^{-1}=\ell_2$, a rolę $\ell_2$ -- $x\circ c=\ell_1$; stąd
+$c_2=0$. Wyrazy wolne są nieistotne: $(\ell+\kappa)^2\in\ell^2+\mathrm{span}(1,x,y)$, a stała w
+$\ell_2$ to wielokrotność kolumny jedynek. Wyznaczniki są jednorodne względem skalowania $\ell_j$.
+\end{proof}
+Lemat~\ref{lem:konstr} pokazuje, że przy niedegeneracji warunki te są również wystarczające.
+
+\subsection{Obliczenia i ich odtwarzalność}
+Wszystkie rachunki prowadzono dokładnie nad $\Q$ (lub w jawnie zadanych ciałach liczbowych):
+\begin{itemize}
+\item \texttt{praca/iter01/zad1/skrypty/st6.py} (sympy) -- rozwiązanie układów (I), (II) dla
+  $(k,l)=(3,2)$ i zapis rozwiązania stopnia 6;
+\item \texttt{praca/iter01/zad2/skrypty/dolne.sage} (Sage/Singular, ok.\ 10\,s) -- jądro układu
+  z lematu~\ref{lem:L1} (macierz $5\times6$), formy $c_1,c_2$, rozkład ideału $(c_1,c_2)$ na
+  ideały pierwsze w czterech mapach afinicznych pokrywających $\mathbb{P}^1\times\mathbb{P}^1$;
+\item \texttt{praca/iter01/zad3/skrypty/konstrukcja*.sage} -- jawne automorfizmy stopnia 4 nad
+  $\Q(\sqrt{94})$ i nad ciałem sześciennym, z asercjami $F(p_i)=q_i$, $G\circ F=F\circ G=\mathrm{id}$;
+\item \texttt{praca/iter02/zad1/skrypty/audyt.sage} -- niezależna eliminacja (rugownik względem
+  $(a_2:b_2)$ zamiast map);
+\item \texttt{praca/iter02/zad2/skrypty/\{audyt,ciala,kontrola\}.py} (wyłącznie sympy) -- powtórzenie
+  rachunków oraz kontrola pozytywna na losowych wymiernych automorfizmach stopni 2 i 4.
+\end{itemize}
+Rozwiązania sprawdza weryfikator \texttt{narzedzia/verify.py} (podstawienie punktów, odwracalność
+nad $\Q$, stopień); kopia uruchamiana przez zarządcę nadaje etykietę ZWERYFIKOWANE.

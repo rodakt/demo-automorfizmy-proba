@@ -1,1 +1,38 @@
-% Sekcję uzupełnia agent-redaktor.
+\section{Przebieg eksperymentu}
+
+\paragraph{Etap 0.} Konstrukcja bazowa (dwa czynniki trójkątne stopnia 4 z interpolacji
+Lagrange'a) dała rozwiązanie stopnia $16=(m-1)^2$, przyjęte przez weryfikator (ZWERYFIKOWANE).
+
+\paragraph{Plan iteracji 01.} Planista, opierając się na twierdzeniu~\ref{tw:jvdk}, zauważył
+(wówczas jako HIPOTEZA, skrypt \texttt{stan/plan\_iter01\_sprawdzenie.py}), że stopnie $1,2,3,5$
+wymagają warunku z lematu~\ref{lem:L1}, a stopień $4=2\cdot2$ -- wymiernego wspólnego zera form
+$c_1,c_2$, których zera wydawały się niewymierne; stopień $6=3\cdot2$ prowadzi zaś do warunku
+liniowego. Zlecono trzy niezależne zadania.
+
+\paragraph{Iteracja 01.}
+\begin{itemize}
+\item \emph{zad1 (konstrukcja):} metodą z lematu~\ref{lem:konstr} dla $\ell_1=x-3y$, $\ell_2=y$
+  otrzymano $\mu=-\tfrac12-\tfrac{25}{24}x+\tfrac18y$, $f(t)=\tfrac{t^2}{8}+\tfrac{t^3}{96}$,
+  $\nu=\tfrac83-x+3y$, $g(t)=-\tfrac83t^2$. Rozwiązanie stopnia 6 zostało przyjęte przez
+  weryfikator (ZWERYFIKOWANE; zob.\ sekcję Wyniki).
+\item \emph{zad2 (ograniczenie dolne):} pełny dowód, że stopień $\le5$ jest nad $\Q$ niemożliwy
+  (twierdzenie~\ref{tw:dolne} niżej), z rachunkami w Sage.
+\item \emph{zad3 (kontrola ostrości redukcji):} dla $\ell_1=a_1x+y$, $\ell_2=a_2x+y$ z
+  $a_1=19+2\sqrt{94}$, $a_2=-a_1/15$ zbudowano jawny automorfizm stopnia 4 nad $\Q(\sqrt{94})$,
+  a także nad ciałem sześciennym wyznaczonym przez $3a_2^3+39a_2^2+29a_2+9=0$.
+\end{itemize}
+
+\paragraph{Iteracja 02 (audyt).} Ponieważ dowód dolnego ograniczenia sprawdził tylko jeden wykonawca,
+zlecono dwa niezależne audyty: teoretyczny (zad1; inna metoda eliminacji, czysty zapis dowodu) i
+obliczeniowy (zad2; wyłącznie sympy, z kontrolą pozytywną). Oba potwierdziły wynik; jedyna
+zgłoszona luka to brak numeru twierdzenia w cytowaniu twierdzenia~\ref{tw:jvdk}. Wykonawca zad2
+świadomie oznaczył końcowy wniosek jako HIPOTEZA, bo nie audytował części teoretycznej -- tę
+sprawdził wykonawca zad1.
+
+\paragraph{Plan iteracji 03.} Planista uznał problem za rozstrzygnięty i zakończył eksperyment
+(\texttt{koniec: true}), pozostawiając czas na redakcję raportu.
+
+\begin{uwaga}
+Żadna iteracja nie przeszukiwała klasy automorfizmów stopnia 6 innej niż złożenia $3\cdot2$; nie
+było takiej potrzeby, bo rozwiązanie znaleziono od razu, a dolne ograniczenie dotyczy stopni $\le5$.
+\end{uwaga}

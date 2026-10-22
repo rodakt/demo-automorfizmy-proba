@@ -18,3 +18,7 @@ Po iteracji 01 mamy zweryfikowane rozwiązanie stopnia 6 (złożenie czynników 
 ## Iteracja 03 — plan
 
 Obie iteracje audytu potwierdziły wynik: mamy ZWERYFIKOWANE rozwiązanie stopnia 6 (iter01/zad1) oraz dowód, że nad Q stopień ≤ 5 jest niemożliwy (iter01/zad2). Dowód przeszedł niezależny audyt teoretyczny (iter02/zad1, inną metodą eliminacji) i obliczeniowy w sympy z kontrolą pozytywną (iter02/zad2). Kroki rachunkowe dowodu mają etykietę OBLICZENIOWE, rozumowanie redukcyjne (Jung–van der Kulk) — UDOWODNIONE; jedyna znana luka jest bibliograficzna (brak numeru twierdzenia w cytowaniu). Przeszkoda dla stopnia 4 jest czysto arytmetyczna: nad Q(√94) i nad ciałem sześciennym stopień 4 jest osiągalny (iter01/zad3). Uznajemy pytanie za rozstrzygnięte — minimalny stopień nad Q wynosi 6 — i kończymy eksperyment (`koniec: true`), zostawiając pozostały czas na redakcję raportu.
+
+## Raport — wersja końcowa
+
+Napisano sekcje metoda, przebieg, wnioski (z listą pytań otwartych), streszczenie i literaturę; raport podaje zweryfikowany stopień 6 oraz dowód (przy cytowanym tw. Junga–van der Kulka, z krokami obliczeniowymi), że nad Q stopień ≤5 jest niemożliwy. Kompilacja bez błędów.
