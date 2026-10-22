@@ -1,0 +1,16 @@
+Najniższy stopień automorfizmu przyjętego przez niezależny weryfikator: \textbf{16} (znane ograniczenie górne: $16$). Weryfikator sprawdza dokładnie, w arytmetyce liczb wymiernych, warunki $F(p_i)=q_i$, odwracalność (odwrotność wielomianowa o współczynnikach wymiernych) oraz stopień. Stopień ten jest ograniczeniem \emph{górnym}; o ograniczeniach dolnych mówią wyłącznie twierdzenia opisane w dalszych częściach raportu.
+
+Przyjęte rozwiązania: 1; odrzucone: 0.
+\begin{center}\small\begin{tabular}{rlp{5.2cm}p{5.6cm}}\toprule Stopień & Czynniki & Autor & Plik\\\midrule
+16 & 4$\cdot$4 & konstrukcja bazowa (skrypt przygotowany przed eksperymentem) & \texttt{praca/\allowbreak{}iter00/\allowbreak{}baza/\allowbreak{}rozwiazanie\_bazowe.json}\\
+\bottomrule\end{tabular}\end{center}
+\subsection*{Najlepsze znalezione odwzorowanie}
+Złożenie dwóch odwzorowań trójkątnych stopni 4 i 4 z interpolacji Lagrange'a, otoczone ścinaniami; stopień nie przekracza (m-1)\^{}2 = 16.
+\noindent $F = \varphi_n\circ\dots\circ\varphi_1$, gdzie (w kolejności działania):
+\begin{align*}
+\varphi_{1}&\colon (x,y)\mapsto\left(x + 2 y,\ y\right)\\\varphi_{2}&\colon (x,y)\mapsto\left(x,\ y + \left(\frac{1489 x^{4}}{15120} - \frac{23 x^{3}}{48} - \frac{3923 x^{2}}{3024} + \frac{143 x}{48} + \frac{3107}{840}\right)\right)\\\varphi_{3}&\colon (x,y)\mapsto\left(x + \left(- \frac{1489 y^{4}}{15120} + \frac{23 y^{3}}{48} + \frac{3923 y^{2}}{3024} - \frac{143 y}{48} - \frac{3107}{840}\right),\ y\right)\\\varphi_{4}&\colon (x,y)\mapsto\left(x,\ - 2 x + y\right)
+\end{align*}
+Postać rozwinięta ma 306 wyrazów; podajemy ją tylko w pliku źródłowym rozwiązania.
+\IfFileExists{gen/najlepsze.pdf}{\begin{figure}[h!]\centering\includegraphics[width=\textwidth]{gen/najlepsze.pdf}\caption{Łamana $p_1\to\dots\to p_m$ (lewa) i jej obraz przez najlepsze znalezione $F$ (prawa); barwa wskazuje położenie wzdłuż łamanej.}\end{figure}}{}
+\IfFileExists{gen/czynniki.pdf}{\begin{figure}[h!]\centering\includegraphics[width=\textwidth]{gen/czynniki.pdf}\caption{Działanie kolejnych czynników $\varphi_k$ najlepszego $F$ na punkty i łamaną. Czynnik trójkątny przesuwa punkty tylko pionowo albo tylko poziomo; każdy panel ma własny kadr.}\end{figure}}{}
+\IfFileExists{gen/postep.pdf}{\begin{figure}[h!]\centering\includegraphics[width=0.7\textwidth]{gen/postep.pdf}\caption{Najniższy zweryfikowany stopień w kolejnych minutach eksperymentu.}\end{figure}}{}

@@ -1,0 +1,1 @@
+etap 0: dane i konstrukcja bazowa

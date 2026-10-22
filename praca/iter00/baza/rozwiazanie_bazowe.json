@@ -1,0 +1,51 @@
+{
+ "autor": "konstrukcja bazowa (skrypt przygotowany przed eksperymentem)",
+ "opis": "Złożenie dwóch odwzorowań trójkątnych stopni 4 i 4 z interpolacji Lagrange'a, otoczone ścinaniami; stopień nie przekracza (m-1)^2 = 16.",
+ "postac": "slowo",
+ "czynniki": [
+  {
+   "typ": "afiniczne",
+   "A": [
+    [
+     1,
+     2
+    ],
+    [
+     0,
+     1
+    ]
+   ],
+   "t": [
+    0,
+    0
+   ]
+  },
+  {
+   "typ": "trojkatne",
+   "zmienia": "y",
+   "f": "1489*x**4/15120 - 23*x**3/48 - 3923*x**2/3024 + 143*x/48 + 3107/840"
+  },
+  {
+   "typ": "trojkatne",
+   "zmienia": "x",
+   "f": "-1489*y**4/15120 + 23*y**3/48 + 3923*y**2/3024 - 143*y/48 - 3107/840"
+  },
+  {
+   "typ": "afiniczne",
+   "A": [
+    [
+     1,
+     0
+    ],
+    [
+     -2,
+     1
+    ]
+   ],
+   "t": [
+    0,
+    0
+   ]
+  }
+ ]
+}

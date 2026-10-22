@@ -1,0 +1,6 @@
+{
+ "status": "rozwiazanie",
+ "podsumowanie": "Złożenie dwóch odwzorowań trójkątnych stopni 4 i 4 z interpolacji Lagrange'a, otoczone ścinaniami; stopień nie przekracza (m-1)^2 = 16.",
+ "twierdzenia": [],
+ "najlepszy_stopien": null
+}
