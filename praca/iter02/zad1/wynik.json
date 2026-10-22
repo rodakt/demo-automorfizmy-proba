@@ -1,0 +1,10 @@
+{
+ "status": "potwierdzone",
+ "podsumowanie": "Audyt dowodu z iter01 (punkty a–e) nie wykazał błędu matematycznego. Lemat L1 i warunki (I),(II) dla stopnia 4 = 2·2 sprawdzono niezależną metodą (rugownik po (a2:b2) zamiast map P¹×P¹): po wyeliminowaniu l2 zostaje forma 768(a1²−38a1b1−15b1²)(9a1³+29a1²b1+39a1b1²+3b1³) bez zer w P¹(Q); przypadek zdegenerowany (D1≡0) nie występuje, bo gcd(u,v)=1. Jedyna luka jest bibliograficzna: brak numeru twierdzenia o multiplikatywności stopnia (Jung–van der Kulk). Wraz z zweryfikowanym rozwiązaniem stopnia 6 daje to minimalny stopień 6 nad Q.",
+ "najlepszy_stopien": 6,
+ "twierdzenia": [
+  {"tresc": "Lemat L1: nie istnieją niestałe afiniczne l1, l2 nad Q z l1(p_i)=l2(q_i), i=1..5; zatem brak automorfizmu postaci a∘T∘b (T trójkątne dowolnego stopnia) ani afinicznego realizującego bijekcję.", "etykieta": "OBLICZENIOWE", "uzasadnienie": "Rozumowanie x∘T=x (UDOWODNIONE) + macierz 5×6 rzędu 5, jądro tylko stałe.", "pliki": ["skrypty/audyt.sage", "tmp/audyt_wyjscie.txt"]},
+  {"tresc": "Brak automorfizmu postaci a∘T∘b∘T'∘c z deg T = deg T' = 2 nad Q realizującego bijekcję.", "etykieta": "OBLICZENIOWE", "uzasadnienie": "Warunki konieczne (I),(II) (wyprowadzenie sprawdzone, w tym dla F⁻¹ i stałych) prowadzą do D1=u a2+v b2, gcd(u,v)=1, (a2:b2)=(v:−u), D2 = 768(a1²−38a1b1−15b1²)(9a1³+29a1²b1+39a1b1²+3b1³) bez zer wymiernych w P¹; zgodne z iter01/zad2.", "pliki": ["skrypty/audyt.sage"]},
+  {"tresc": "Każdy automorfizm wielomianowy Q² o współczynnikach wymiernych realizujący bijekcję z zadanie.json ma stopień ≥ 6; razem z zweryfikowanym rozwiązaniem stopnia 6 minimalny stopień wynosi 6.", "etykieta": "UDOWODNIONE", "uzasadnienie": "Twierdzenie Junga–van der Kulka (dowolne ciało, stopień całkowity multiplikatywny na słowach zredukowanych) redukuje stopnie ≤5 do przypadków: afiniczne, jeden czynnik, dwa czynniki stopnia 2; każdy wykluczony wyżej. Kroki rachunkowe OBLICZENIOWE. Cytowanie twierdzenia bez numeru (luka bibliograficzna).", "pliki": ["notatki.md", "skrypty/audyt.sage", "../../iter01/zad2/skrypty/dolne.sage"]}
+ ]
+}
