@@ -5,3 +5,4 @@ iter01_zad3	wykonawca	01	1792654876	1792654992	0	0.5201896	11	Walidacja redukcji
 iter02_planista	planista	02	1792655000	1792655078	0	0.49032040000000005	5	planowanie 
 iter02_zad1	wykonawca	02	1792655078	1792655180	0	0.5168905999999999	7	Audyt teoretyczny dowodu: brak automorfizmów stopnia <= 5 nad Q 
 iter02_zad2	wykonawca	02	1792655078	1792655186	0	0.5166242000000001	7	Niezależny audyt obliczeniowy (sympy) dolnego ograniczenia + kontrola pozytywna 
+iter03_planista	planista	03	1792655194	1792655227	0	0.25891359999999997	4	planowanie 
